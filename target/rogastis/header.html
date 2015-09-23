@@ -1,0 +1,163 @@
+
+<div ng-controller="HeaderRegisterController">
+	<script type="text/ng-template" id="RegisterModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Register !!</h3>
+        </div>
+		<form ng-submit="ok()" name="registerForm">
+        <div class="modal-body">
+			<p>
+				<label>Username</label>&nbsp;<font size="3" color="red">*</font><br><input
+					ng-model="register.loginId" class="form-control" type="text" required>
+			<p>
+				<label>Password</label>&nbsp;<font size="3" color="red">*</font><br><input
+					ng-model="register.password" class="form-control" type="password" required>
+			<p>
+				<label>First Name</label>&nbsp;<font size="3" color="red">*</font><br><input
+					ng-model="register.firstName" class="form-control" type="text" required>
+			<p>
+				<label>Last Name</label>&nbsp;<font size="3" color="red">*</font><br><input
+					ng-model="register.lastName" class="form-control" type="text" required>
+			<p>
+				<font size="3" color="red">* indicates mandatory field</font>
+        </div>
+        <div class="modal-footer">
+			<input type="submit" class="btn primary-btn" value="Register" ng-disabled="registerForm.$invalid"/>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+		</form>
+    </script>
+
+	<div ng-show="showRegisterButton">
+		<button type="button" class="btn btn-default navbar-btn"
+			ng-click="open()">Register</button>
+	</div>
+</div>
+<div ng-controller="HeaderPostController">
+	<script type="text/ng-template" id="PostModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Post !!</h3>
+        </div>
+		<form ng-submit="ok()" name="postForm">
+        <div class="modal-body">
+			<p>
+				<label>Enter a title for you question: </label>&nbsp;&nbsp;<font
+					size="3" color="red">*</font><br><br><input
+					ng-model="post.headline" class="form-control" type="text"
+					style="width: 600px; height: 40px;" required>
+			<p>
+				<label>Description: </label>&nbsp;&nbsp;<font size="3" color="red">*</font><br>
+				<br>
+
+				<textarea ng-model="post.description" class="form-control" name="description" maxlength="3000"
+					required style="width: 600px; height: 200px;"></textarea>
+			<p>
+				<font size="3" color="red">* indicates mandatory field</font>
+
+        </div>
+        <div class="modal-footer">
+            <input type="submit" class="btn primary-btn" value="Post" ng-disabled="postForm.$invalid"/>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+		</form>
+    </script>
+
+	<div ng-show="showPostButton">
+		<button type="button" class="btn btn-default navbar-btn"
+			ng-click="open('lg')">Post Question</button>
+	</div>
+</div>
+<div ng-controller="HeaderLoginController">
+	<script type="text/ng-template" id="LoginModalContent.html">
+
+        <div class="modal-header">
+            <h3 class="modal-title">Login !!</h3>
+        </div>
+		<form ng-submit="ok()" name="loginForm">
+        <div class="modal-body">
+			<p>
+				<label>Username</label><br><input ng-model="login.username"
+					class="form-control" type="text" required>
+			<p>
+				<label>Password</label><br><input ng-model="login.password"
+					class="form-control" type="password" required>
+        </div>
+        <div class="modal-footer">
+			<input type="submit" class="btn primary-btn" value="Submit" ng-disabled="loginForm.$invalid"/>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+		</form>
+    </script>
+
+	<div ng-show="showLoginButton">
+		<button type="button" class="btn btn-default navbar-btn"
+			ng-click="open('sm')">Login</button>
+	</div>
+</div>
+
+<div ng-controller="UserWelcomeController">
+	<div ng-show="WelcomePanel">
+		<p class="navbar-text">Welcome, {{ currentUser }}</p>
+	</div>
+</div>
+
+<div ng-controller="HeaderLogoutController">
+	<script type="text/ng-template" id="LogoutModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Logout !!</h3>
+        </div>
+        <div class="modal-body">
+				<label>Are you sure you want to logout ?</label><br>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">Logout</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+	<div ng-show="showLogoutButton">
+		<button type="button" class="btn btn-default navbar-btn"
+			ng-click="open('sm')">Logout</button>
+	</div>
+</div>
+
+
+<div ng-controller="DefaultQuestionController">
+	<style type="text/css">
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 0px;
+	overflow: hidden;
+	word-break: normal;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 0px;
+	overflow: hidden;
+	word-break: normal;
+}
+</style>
+
+	<div ng-show="loadingquestions">
+		<img src="images/loadingquestions.GIF"></img>
+	</div>
+
+	<table class="tg" ng-repeat="q in questions">
+		<tr align="center">
+			<td><a href="#/questiondetail/{{q.questionId}}">{{q.question}}</a></td>
+		</tr>
+	</table>
+</div>

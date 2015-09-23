@@ -1,0 +1,52 @@
+
+<div>
+	<style type="text/css">
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 0px;
+	overflow: hidden;
+	word-break: normal;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 0px;
+	overflow: hidden;
+	word-break: normal;
+}
+</style>
+
+	<div ng-show="loadingquestions">
+		<img src="images/loadingquestions.GIF" align="center"></img>
+	</div>
+
+	<table border="0"
+		style="background-color: #FFFFFF; border-collapse: collapse; border: 1px solid #FFFFFF; color: #000000; width: 100%"
+		cellpadding="3" cellspacing="3" fixed-headers
+		ng-repeat="p in postslist track by $index">
+		<tr>
+			<td width="50%" align="center"><a
+				href="javascript:history.back()"><img src="images/back.png"></img></a></td>
+			<td width="50%" align="center"><a href="index.html#/"><img
+					src="images/home.jpg"></img></a></td>
+		</tr>
+	</table>
+
+	<table class="tg" ng-repeat="q in questions">
+		<tr align="center">
+			<td><a href="#/questiondetail/{{q.questionId}}">{{q.question}}</a></td>
+		</tr>
+	</table>
+</div>

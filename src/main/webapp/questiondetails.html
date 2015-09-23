@@ -1,0 +1,99 @@
+
+<div>
+	<div ng-show="loadingposts">
+		<img src="images/loadingposts.GIF"></img>
+	</div>
+	<p>
+	<table border="0"
+		style="background-color: #FFFFFF; border-collapse: collapse; border: 1px solid #FFFFFF; color: #000000; width: 100%"
+		cellpadding="3" cellspacing="3" fixed-headers
+		ng-repeat="p in postslist track by $index">
+		<tr>
+			<td width="50%" align="center"><a
+				href="javascript:history.back()"><img src="images/back.png"></img></a></td>
+			<td width="50%" align="center"><a href="index.html#/"><img
+					src="images/home.jpg"></img></a></td>
+		</tr>
+	</table>
+	<p>
+	<hr width=90% " align="center" size="2">
+	<p>
+		<!-- <table border="0"
+		style="background-color: #FFFFFF; border-collapse: collapse; border: 1px solid #FFFFFF; color: #000000; width: 100%"
+		cellpadding="3" cellspacing="3" fixed-header>
+		<tr width="100%" align="center">
+			<td><font size="5"><i>{{question.question}}</i></font></td>
+		</tr>
+	</table> -->
+	<div align="center">
+		<font size="5"><i>{{question.question}}</i></font>
+	</div>
+	<p>
+	<hr width="90%" align="center" size="2">
+	<p>
+	<table border="0"
+		style="background-color: #FFFFFF; border-collapse: collapse; border: 1px solid #FFFFFF; color: #000000; width: 100%"
+		cellpadding="3" cellspacing="3" fixed-headers
+		ng-repeat="p in postslist track by $index">
+		<tr>
+			<td width="25%">
+				<table>
+					<tr>
+						<td align="top"><img src="images/like.jpg" height="60"
+							width="60"></img></td>
+						<td width="10"><font size="3" color="blue">{{p.likes}}</font></td>
+					</tr>
+					<tr>
+						<td align="bottom"><img src=" images/dislike.jpg" height="60"
+							width="60"></img></td>
+						<td width="10"><font size="3" color="red">{{p.dislikes}}</font></td>
+					</tr>
+				</table>
+			</td>
+			<td width="50%">{{p.postContent}}</td>
+			<td width="25%">
+				<table>
+					<tr>
+						<td height="60" width="300"><font size="3" color="red">Author:
+						</font>{{p.username}}</td>
+					</tr>
+					<tr>
+						<td height="60" width="300"><font size="3" color="red">Date:
+						</font>{{p.postdate * 1000 | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td width="20%"><hr align="right" size="2"></td>
+			<td width="50%"><hr align="center" size="2"></td>
+			<td width="20%"><hr align="left" size="2"></td>
+		</tr>
+	</table>
+	<p>
+	<p>
+		<script type="text/ng-template" id="PostCommentModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Post Comment !!</h3>
+        </div>
+		<form ng-submit="ok()" name="postForm">
+        <div class="modal-body">
+			<p>
+				<label>Enter your comment here: </label>&nbsp;&nbsp;<font size="3" color="red">*</font><br>
+			<p>
+				<textarea ng-model="post.comment" class="form-control" name="comment" maxlength="3000"
+					required style="width: 600px; height: 200px;"></textarea>
+			<p>
+				<font size="3" color="red">* indicates mandatory field</font>
+
+        </div>
+        <div class="modal-footer">
+            <input type="submit" class="btn primary-btn" value="Submit" ng-disabled="postForm.$invalid"/>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+		</form>
+    </script>
+	<div ng-show="showCommentButton" align="center">
+		<button type="button" class="btn btn-default" ng-click="open('lg')">Comment</button>
+	</div>
+</div>

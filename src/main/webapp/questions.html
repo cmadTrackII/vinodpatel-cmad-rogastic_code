@@ -1,0 +1,40 @@
+
+<div>
+	<style type="text/css">
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 0px;
+	overflow: hidden;
+	word-break: normal;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 0px;
+	overflow: hidden;
+	word-break: normal;
+}
+</style>
+
+	<div ng-show="loadingquestions">
+		<img src="images/loadingquestions.GIF"></img>
+	</div>
+
+	<table class="tg" ng-repeat="q in questions">
+		<tr>
+			<td><a href="#/questiondetail/{{q.questionId}}">{{q.question}}</a></td>
+		</tr>
+	</table>
+</div>
